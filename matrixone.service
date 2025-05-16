@@ -1,0 +1,16 @@
+[Unit]
+Description=Matrixone Service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/liubo.linux/mo-work/matrixorigin/matrixone/mo-service -launch /home/liubo.linux/mo-work/matrixorigin/matrixone/etc/launch/launch.toml
+Restart=always
+RestartSec=5
+User=liubo
+WorkingDirectory=/home/liubo.linux/mo-work/matrixorigin/matrixone
+StandardOutput=append:/var/log/matrixone.log
+StandardError=inherit
+
+[Install]
+WantedBy=multi-user.target
